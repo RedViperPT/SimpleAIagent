@@ -1,6 +1,7 @@
 from functions.get_files_info import get_files_info
 from functions.get_file_content import get_file_content
 from functions.write_file import write_file
+from functions.run_python import run_python_file
 
 # tests get_file_info
 # def test_get_files_info():
@@ -27,9 +28,18 @@ from functions.write_file import write_file
 
 
 # tests write_file
-def test_write_file():
-    print(write_file("calculator", "lorem.txt", "wait, this isn't lorem ipsum"))
-    print(write_file("calculator", "pkg/morelorem.txt", "lorem ipsum dolor sit amet"))
-    print(write_file("calculator", "/tmp/temp.txt", "this should not be allowed"))
+# def test_write_file():
+#     print(write_file("calculator", "lorem.txt", "wait, this isn't lorem ipsum"))
+#     print(write_file("calculator", "pkg/morelorem.txt", "lorem ipsum dolor sit amet"))
+#     print(write_file("calculator", "/tmp/temp.txt", "this should not be allowed"))
+
+# tests run_python
+def test_run_python():
+    print(run_python_file("calculator", "main.py"))
+    print(run_python_file("calculator", "main.py", ["3 + 5"]))
+    print(run_python_file("calculator", "tests.py"))
+    print(run_python_file("calculator", "../main.py"))
+    print(run_python_file("calculator", "nonexistent.py"))
+
 if __name__ == "__main__":
-    test_write_file()
+    test_run_python()
