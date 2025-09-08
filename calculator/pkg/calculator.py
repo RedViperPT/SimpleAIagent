@@ -6,7 +6,7 @@ class Calculator:
             "+": lambda a, b: a + b,
             "-": lambda a, b: a - b,
             "*": lambda a, b: a * b,
-            "/": lambda a, b: a / b,
+            "/": lambda a, b: a / b if b != 0 else float('inf'),
         }
         self.precedence = {
             "+": 1,
