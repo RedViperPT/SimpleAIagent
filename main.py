@@ -89,15 +89,13 @@ def main():
                         print("Tool Response:")
                         print(response_dict.get("result") or response_dict.get("error"))
                     
-                    # CRITICAL: Append the tool result back to messages as user content
                     messages.append(
                         types.Content(
                             role="user",
-                            parts=function_call_result.parts,  # includes Part(function_response=...)
+                            parts=function_call_result.parts,
                         )
                     )
             else:
-                # No function calls - model is providing final response
                 if response.text:
                     print("Final response:")
                     print(response.text)
@@ -107,12 +105,10 @@ def main():
                     break
         
         else:
-            # Loop completed without breaking (hit max_iterations)
             print(f"Reached maximum iterations ({max_iterations}) without completion")
 
     except Exception as e:
         print(f"Error in function calling loop: {e}")
-        # Optionally log the error or take other recovery actions
 
     if verbose:
         print(f"User prompt: {user_prompt_clean}")
