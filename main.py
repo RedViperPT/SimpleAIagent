@@ -11,9 +11,6 @@ from functions.write_file import schema_write_file
 from functions.call_functions import call_function
 
 
-from functions.call_functions import call_function 
-
-
 system_prompt = """
 You are a helpful AI coding agent.
 
